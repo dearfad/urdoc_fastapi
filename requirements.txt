@@ -1,0 +1,40 @@
+# UI
+streamlit
+
+# streamlit_cookies_controller
+
+sqlalchemy
+
+# FAKEPATIENT
+faker
+
+# XINGCHEN
+xingchen
+
+# DASHSCOPE
+dashscope
+
+# volcengin
+volcengine-python-sdk
+
+# ZHIPUAI
+zhipuai
+
+# minimax
+openai
+
+
+# BAIDU
+qianfan
+
+# TENCENT
+tencentcloud-sdk-python
+
+# shangtang
+sensenova
+
+openpyxl
+
+#fastapi
+fastapi
+uvicorn[standard]
