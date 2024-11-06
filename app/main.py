@@ -36,7 +36,12 @@ async def get_model():
     return {"model": model_name}
 
 
-@app.get("/prompt")
-async def get_prompt():
-    prompt = read_use_prompt("sim")
+@app.get("/prompt/{category}")
+async def get_prompt(category):
+    prompt = read_use_prompt(category)
     return {"prompt": prompt}
+
+@app.get('/case')
+async def get_case():
+    case = '姓名：测试'
+    return {"case": case}
