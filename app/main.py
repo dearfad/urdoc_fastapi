@@ -24,7 +24,7 @@ app.add_middleware(
 
 @app.get("/")
 async def get_root():
-    return {"message": "Hello World"}
+    return {"message": "OK"}
 
 @app.get("/favicon.ico")
 async def get_favicon():
@@ -43,5 +43,5 @@ async def get_prompt(category):
 
 @app.get('/case')
 async def get_case():
-    case = '姓名：测试'
+    case = '姓名：测试，年龄：30岁，右侧乳房肿物3天'
     return {"case": case}
