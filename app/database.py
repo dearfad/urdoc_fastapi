@@ -55,17 +55,17 @@ class Prompt(Base):
     public: Mapped[bool] = mapped_column(Integer, nullable=True)
 
 
-# class Case(Base):
-#     __tablename__ = "case"
-#     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-#     creator: Mapped[str] = mapped_column(Text, nullable=True)
-#     profile: Mapped[str] = mapped_column(Text, nullable=True)
-#     content: Mapped[str] = mapped_column(Text, nullable=True)
-#     test: Mapped[str] = mapped_column(Text, nullable=True)
-#     story: Mapped[str] = mapped_column(Text, nullable=True)
-#     book: Mapped[str] = mapped_column(Text, nullable=False)
-#     chapter: Mapped[str] = mapped_column(Text, nullable=False)
-#     subject: Mapped[str] = mapped_column(Text, nullable=False)
+class Case(Base):
+    __tablename__ = "case"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    creator: Mapped[str] = mapped_column(Text, nullable=True)
+    profile: Mapped[str] = mapped_column(Text, nullable=True)
+    content: Mapped[str] = mapped_column(Text, nullable=True)
+    test: Mapped[str] = mapped_column(Text, nullable=True)
+    story: Mapped[str] = mapped_column(Text, nullable=True)
+    book: Mapped[str] = mapped_column(Text, nullable=False)
+    chapter: Mapped[str] = mapped_column(Text, nullable=False)
+    subject: Mapped[str] = mapped_column(Text, nullable=False)
 
 
 # def create_table(table: Base):
@@ -359,6 +359,11 @@ def read_use_prompt(category: str):
 #     else:
 #         return case
 
+def read_case(id:int):
+    with Session() as session:
+        result = session.execute(select(Case).where(Case.id == id))
+        case = result.scalar()
+    return case.content
 
 # #### case - UPDATE ####
 # @st.dialog("更改病例类别")

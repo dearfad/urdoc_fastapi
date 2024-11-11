@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from database import read_use_model, read_use_prompt
+from database import read_use_model, read_use_prompt, read_case
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -41,7 +41,7 @@ async def get_prompt(category):
     prompt = read_use_prompt(category)
     return {"prompt": prompt}
 
-@app.get('/case')
-async def get_case():
-    case = '姓名：测试，年龄：30岁，右侧乳房肿物3天'
-    return {"case": case}
+@app.get('/case/{id}')
+async def get_case(id): 
+    content = read_case(id)
+    return {"case": content}
